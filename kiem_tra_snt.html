@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiem tra so nguyen to</title>
+</head>
+<body>
+<input type="number" id="input" placeholder="nhập một số nguyên"/>
+<button onclick="kiemTraSnt()">Kiểm tra</button>
+<button onclick="display()">Hiển thị các snt < 10000</button>
+<p><span id="ketQua"></span></p>
+<script>
+    function isPrime(number) {
+        for (let i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function kiemTraSnt() {
+        let inputNumber = parseInt(document.getElementById('input').value);
+        if (isPrime(inputNumber)) {
+            document.getElementById('ketQua').innerHTML = inputNumber + ' la so nguyen to';
+        } else {
+            document.getElementById('ketQua').innerHTML = inputNumber + ' khong phai la so nguyen to';
+        }
+    }
+
+    function display() {
+        for (let n = 2; n < 10000; n++){
+            if (isPrime(n)) {
+                document.write(n + '; ');
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
